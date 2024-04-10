@@ -49,6 +49,16 @@ Animation::update(double elapsed) {
     }
 }
 
+void
+Animation::animate() {
+    sf::Clock duration;
+    for (const auto& frame : m_frames) {
+        m_target.setTextureRect(frame.rect);
+        while (duration.getElapsedTime().asSeconds() < frame.duration);
+        duration.restart();
+    }
+}
+
 const double
 Animation::getLength() const {
     return m_total_length;

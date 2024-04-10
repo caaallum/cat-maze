@@ -25,6 +25,8 @@ public:
 
 	void update(double elapsed);
 
+	void animate();
+
 	const double getLength() const;
 
 private:
