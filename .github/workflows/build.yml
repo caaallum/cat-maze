@@ -1,0 +1,26 @@
+name: Build
+
+on:
+  push:
+    branched: [ "master" ]
+  pull_request:
+    branched: [ "master" ]
+
+jobs:
+  build-linux:
+    runs-on: linux-latest
+    steps:
+    - uses: actions/checkout@v3
+    - name: Configure
+      run: cmake -B ${{github.workspace}}/build
+    - name: Build
+      run: cmake --build ${{github.workspace}}/build
+
+  build-window:
+    runs-on: windows-latest
+    steps:
+    - uses: actions/checkout@v3
+    - name: Configure
+      run: cmake -B ${{github.workspace}}/build
+    - name: Build
+      run: cmake --build ${{github.workspace}}/build
