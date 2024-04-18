@@ -2,13 +2,13 @@ name: Build
 
 on:
   push:
-    branched: [ "master" ]
+    branches: [ "master" ]
   pull_request:
-    branched: [ "master" ]
+    branches: [ "master" ]
 
 jobs:
   build-linux:
-    runs-on: linux-latest
+    runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v3
     - name: Configure
